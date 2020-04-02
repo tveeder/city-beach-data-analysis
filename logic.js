@@ -1,9 +1,9 @@
-// Function to determine marker size based on initialsize
+// Function to determine marker size based on initialsize.  size corresponds to radius.  
 function markerSize(initialsize) {
     return initialsize / 4000;
 }
 
-// An array containing all of the information needed to create city and beach markers
+// An array containing all of the information needed to create beach markers
 var locations = [{
         coordinates: [41.8935, -87.6129],
         beach: {
@@ -92,8 +92,8 @@ for (var i = 0; i < locations.length; i++) {
         L.circle(locations[i].coordinates, {
             stroke: false,
             fillOpacity: 0.75,
-            color: "red",
-            fillColor: "red",
+            color: "yellow",
+            fillColor: "yellow",
             radius: markerSize(locations[i].beach.temperature)
         })
     );
@@ -101,14 +101,12 @@ for (var i = 0; i < locations.length; i++) {
         L.circle(locations[i].coordinates, {
             stroke: false,
             fillOpacity: 0.75,
-            color: "black",
-            fillColor: "black",
+            color: "red",
+            fillColor: "red",
             radius: markerSize(locations[i].beach.E_coli)
         })
     );
 
-
-    // Setting the marker radius for the city by passing initialsize into the markerSize function
     waveMarkers.push(
         L.circle(locations[i].coordinates, {
             stroke: false,
@@ -135,7 +133,7 @@ var darkmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?
     accessToken: API_KEY
 });
 
-// Create two separate layer groups: one for waves and one for Turbidity
+// Create separate layer groups: turbidity,waves,temperature,E_coli
 var turbidity = L.layerGroup(turbidityMarkers);
 var waves = L.layerGroup(waveMarkers);
 var temperature = L.layerGroup(tempMarkers);
@@ -157,9 +155,9 @@ var overlayMaps = {
 
 // Define a map object
 var myMap = L.map("map", {
-    center: [41.8781, -87.6298],
+    center: [41.8781, -87.6298], //chicago coordinates
     zoom: 15,
-    layers: [streetmap, turbidity, waves, temperature, E_coli]
+    layers: [turbidity, waves, temperature, E_coli]
 });
 
 // Pass our map layers into our layer control
