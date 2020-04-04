@@ -8,11 +8,11 @@ var locations = [{
         coordinates: [41.8935, -87.6129],
         beach: {
             name: "Ohio",
-            initialsize: 197950,
-            turbidity: 888,
-            temperature: 58585,
-            waves: 88588,
-            E_coli: 9999,
+            initialsize: 15000,
+            turbidity: 600000,
+            temperature: 201000,
+            waves: 150000,
+            E_coli: 141000,
         },
     },
 
@@ -20,11 +20,11 @@ var locations = [{
         coordinates: [41.9663, -87.6372],
         beach: {
             name: "Montrose",
-            initialsize: 392500,
-            turbidity: 95959,
-            temperature: 884848,
-            waves: 88888,
-            E_coli: 84848
+            initialsize: 15000,
+            turbidity: 400000,
+            temperature: 181000,
+            waves: 200000,
+            E_coli: 159000
 
         },
 
@@ -34,11 +34,11 @@ var locations = [{
         coordinates: [41.7144, -87.5283],
         beach: {
             name: "Calumet Beach",
-            initialsize: 226718,
-            turbidity: 4747373,
-            temperature: 85858,
-            waves: 85858,
-            E_coli: 4474747
+            initialsize: 15000,
+            turbidity: 300000,
+            temperature: 182000,
+            waves: 150000,
+            E_coli: 103000
         },
 
     },
@@ -47,11 +47,11 @@ var locations = [{
         coordinates: [41.986186, -87.651997],
         beach: {
             name: "Osterman",
-            initialsize: 269600,
-            turbidity: 244747,
-            temperature: 84848,
-            waves: 884848,
-            E_coli: 33333
+            initialsize: 15000,
+            turbidity: 800000,
+            temperature: 183000,
+            waves: 170000,
+            E_coli: 158000
         },
 
     },
@@ -60,11 +60,11 @@ var locations = [{
         coordinates: [41.83946, -87.60622],
         beach: {
             name: "Margaret Burroughs",
-            initialsize: 388200,
-            turbidity: 4774747,
-            temperature: 888800,
-            waves: 22388,
-            E_coli: 11181
+            initialsize: 15000,
+            turbidity: 200000,
+            temperature: 202000,
+            waves: 120000,
+            E_coli: 230000
         },
 
     }
@@ -81,7 +81,7 @@ for (var i = 0; i < locations.length; i++) {
     // Setting the marker radius for the beach by passing initialsize into the markerSize function
     turbidityMarkers.push(
         L.circle(locations[i].coordinates, {
-            stroke: false,
+            stroke: true,
             fillOpacity: 0.75,
             color: "grey",
             fillColor: "grey",
@@ -90,7 +90,7 @@ for (var i = 0; i < locations.length; i++) {
     );
     tempMarkers.push(
         L.circle(locations[i].coordinates, {
-            stroke: false,
+            stroke: true,
             fillOpacity: 0.75,
             color: "yellow",
             fillColor: "yellow",
@@ -99,7 +99,7 @@ for (var i = 0; i < locations.length; i++) {
     );
     E_coliMarkers.push(
         L.circle(locations[i].coordinates, {
-            stroke: false,
+            stroke: true,
             fillOpacity: 0.75,
             color: "red",
             fillColor: "red",
@@ -109,11 +109,11 @@ for (var i = 0; i < locations.length; i++) {
 
     waveMarkers.push(
         L.circle(locations[i].coordinates, {
-            stroke: false,
+            stroke: true,
             fillOpacity: 0.75,
             color: "blue",
             fillColor: "blue",
-            radius: markerSize(locations[i].beach.initialsize)
+            radius: markerSize(locations[i].beach.waves)
         })
     );
 }
